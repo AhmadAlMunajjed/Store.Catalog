@@ -1,0 +1,1 @@
+dotnet run --project Store.Catalog --migrate-database
