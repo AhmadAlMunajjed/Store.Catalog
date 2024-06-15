@@ -50,6 +50,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Store.Catalog.Services;
 
 namespace Store.Catalog;
 
@@ -165,6 +166,8 @@ public class CatalogModule : AbpModule
         ConfigureVirtualFiles(hostingEnvironment);
         ConfigureLocalization();
         ConfigureEfCore(context);
+
+        //context.Services.AddScoped<ProductAppService>();
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
@@ -283,6 +286,7 @@ public class CatalogModule : AbpModule
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
+                options.HideAbpEndpoints();
             }
         );
     }

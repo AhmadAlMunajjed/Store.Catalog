@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Store.Catalog.Entities;
+using Store.Catalog.Services.Dtos;
 
 namespace Store.Catalog.ObjectMapping;
 
@@ -6,6 +8,7 @@ public class CatalogAutoMapperProfile : Profile
 {
     public CatalogAutoMapperProfile()
     {
-        /* Create your AutoMapper object mappings here */
+        CreateMap<Product, ProductDto>();
+        CreateMap<CreateUpdateProductDto, Product>();
     }
 }
